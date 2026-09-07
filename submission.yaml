@@ -1,0 +1,31 @@
+# Coldline - Task 2.5
+# File: submission.yaml
+# Component: Student answer sheet
+# Purpose: Record which supported operation was extended and protected.
+# Interacts With: Submission schema, public verifier, versioning checks
+# Sprint/Task: Sprint 2 - Project 2 / Task 2.5
+# Concepts: API versioning, idempotent writes, deterministic assessment
+# Tools: YAML
+
+# Complete submission.yaml from the evidence sources named beside each answer group.
+# Keep the supplied keys; replace empty strings using each field's stated type.
+# Empty values and placeholder text fail verification.
+# Use submission-sample.yaml for format only; do not copy its fictional values.
+# Do not include secrets, personal data, or local absolute paths.
+
+answers:
+  # Task 2.5 — Step 1: API and idempotency path
+  # Extend versioned REST API endpoint while preserving existing contracts.
+  # Implement one version 2 operation while preserving version 1. In Steps 2–3,
+  # integrate and test the supplied idempotency mechanism: repeating a request
+  # with the same key returns the stored response without writing twice.
+  # Sources: docs/student/task-2-5-contract.md and src/api/v2_contracts.py.
+  #
+  # Operation options (use exact strings):
+  # - documents_v2_create: Create a document with POST /api/v2/documents; the
+  #   version 2 request adds source_system, and success returns HTTP 201.
+  # - readings_v2_accept: Accept a reading with POST /api/v2/readings; the
+  #   version 2 request adds reported_by, and success returns HTTP 202.
+  #
+  # Choose one operation ID above matching the single version 2 path you built.
+  selected_operation_id: ""

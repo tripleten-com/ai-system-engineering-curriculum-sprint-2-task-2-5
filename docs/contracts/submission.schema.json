@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Coldline Task 2.5 public answer contract. The single answer names which supported operation was extended; the automated checks then verify that exactly that versioned path exists, that the v1 contracts are unbroken, and that a replayed write returns the stored response without a second side effect.",
+  "title": "Coldline Task 2.5 answers",
+  "description": "The extended operation, as one enumerated value.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "answers"
+  ],
+  "properties": {
+    "answers": {
+      "description": "The only top-level answer mapping accepted by the public verifier.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selected_operation_id"
+      ],
+      "properties": {
+        "selected_operation_id": {
+          "description": "Which supported operation was extended into a version 2 endpoint and protected with the supplied idempotency mechanism.",
+          "enum": [
+            "documents_v2_create",
+            "readings_v2_accept"
+          ]
+        }
+      }
+    }
+  }
+}
