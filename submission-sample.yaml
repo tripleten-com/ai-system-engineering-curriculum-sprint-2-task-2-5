@@ -12,7 +12,8 @@
 # Empty values and placeholder text fail verification.
 # Use submission-sample.yaml for format only; do not copy its fictional values.
 # Do not include secrets, personal data, or local absolute paths.
-# This fictional sample is not a result to submit; an exact copy is rejected.
+# This syntax example deliberately uses a fictional value outside the allowed choices.
+# In submission.yaml, use an exact option listed below that matches your implementation.
 
 answers:
   # Task 2.5 — Step 1: API and idempotency path
@@ -29,4 +30,4 @@ answers:
   #   version 2 request adds reported_by, and success returns HTTP 202.
   #
   # Choose one operation ID above matching the single version 2 path you built.
-  selected_operation_id: "readings_v2_accept"
+  selected_operation_id: "example_operation"

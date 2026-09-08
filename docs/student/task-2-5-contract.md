@@ -53,6 +53,13 @@ for why the claim is taken *before* the write and the response recorded *after* 
 Do not build your own store, lock, or cache. Do not add a concurrency requirement the Task does
 not ask for.
 
+The supplied store retains keys until its database is reset; there is no configurable expiry.
+A concurrent request can receive 409 while the first request is in flight and may retry later.
+Keys identify an operation, not a request-body hash: reuse a key only for the same request.
+Reusing it with another body for the same operation replays the earlier response. The scaffold
+does not detect that misuse. A process failure after a write but before response recording can
+leave a claim in flight; this local exercise does not establish crash-safe exactly-once delivery.
+
 ## What the checks verify
 
 | Check | What it looks at |
