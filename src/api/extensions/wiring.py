@@ -6,7 +6,7 @@ File:              src/api/extensions/wiring.py
 Component:         API — Student service wiring
 Purpose:           Decide which student implementation the application uses.
 Interacts With:    api/bootstrap.py, the document repository, domain services
-Sprint/Task:       Sprint 2 — Project 2 / Task 2.3
+Sprint/Task:       Sprint 2 — Project 2 / Task 2.5
 Concepts:          Composition, dependency injection, bounded student surface
 Tools:             Python 3.12, PostgreSQL
 
