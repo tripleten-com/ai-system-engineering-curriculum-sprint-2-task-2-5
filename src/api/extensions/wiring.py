@@ -21,7 +21,7 @@ Task 2.3's data layer is settled: `build_document_repository` now returns the
 supplied reference repository.
 
 Task 2.4's authorization mechanism is settled: `build_access_constraints`
-returns the supplied reference tenant-boundary policy.
+returns the supplied combined tenancy-and-classification checkpoint.
 
 Task 2.5's factory is `build_v2_router`. It returns `None` in the starter, so
 no `/api/v2/...` path exists yet and the versioning and replay checks fail
@@ -32,6 +32,7 @@ import asyncpg
 from fastapi import APIRouter
 
 from adapters.persistence.document_repository import PostgresDocumentRepository
+from api.access_policy import ComposedAccessConstraints
 from api.document_service import DocumentService
 from api.retrieval_orchestration import RetrievalOrchestrationService
 from api.use_cases import ReadingApplication
@@ -70,7 +71,9 @@ def build_access_constraints() -> AccessConstraintProvider:
     The adapter applies this inside both query arms, so the constraint decides
     what is *fetched* rather than what is discarded afterwards.
     """
-    return TenantBoundaryAccessConstraints()
+    return ComposedAccessConstraints(
+        TenantBoundaryAccessConstraints(), selected_filter_type="tenant_boundary"
+    )
 
 
 def build_v2_router(
