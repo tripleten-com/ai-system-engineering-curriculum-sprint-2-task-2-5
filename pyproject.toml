@@ -115,6 +115,7 @@ versioning-checks = "pytest tests/contract/test_api_versioning.py -m runtime"
 # image must be built from the current checkout. `start` is
 # `up --build --wait` and `ingest` is idempotent.
 versioning = ["start", "ingest", "versioning-checks"]
+authorization-checkpoint = "pytest tests/contract/test_authorization_checkpoint.py -m runtime"
 student-tests = "pytest tests/student"
 test = ["unit", "contract"]
 preflight = "python infra/scripts/preflight.py"
@@ -130,6 +131,7 @@ verify = [
   "start",
   "ready",
   "ingest",
+  "authorization-checkpoint",
   "smoke",
   "e2e",
   "answers",
